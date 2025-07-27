@@ -49,6 +49,8 @@ PY
 # 4. Run
 python AIReporter.py
 
+
+---
 sc2-ai-reporter/
 ├── AIReporter.py           # Main GUI
 ├── prompts/                # Prompt templates per audience & section
