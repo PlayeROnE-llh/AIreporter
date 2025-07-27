@@ -51,3 +51,36 @@ python AIReporter.py
 
 
 ---
+┌──────────────────────────────────────────────────────────────┐
+│                    UI Layer (TkinterDnD)                     │
+│  ┌─────────────┐  ┌─────────────┐  ┌────────────────────┐  │
+│  │ File Drop   │  │ Model Picker│  │ Knowledge Selector │  │
+│  └─────────────┘  └─────────────┘  └────────────────────┘  │
+└────────────────────────┬───────────────────────────────────┘
+│
+┌────────────────────────┴───────────────────────────────────┐
+│                    Controller Threading                      │
+│  - Async replay parsing  - Status callbacks  - Error dialogs │
+└────────────────────────┬───────────────────────────────────┘
+│
+┌────────────────────────┴───────────────────────────────────┐
+│                    Data Pipeline                             │
+│  1. sc2reader → raw events                                 │
+│  2. Clean → 15 s fixed / 5-30 s sliding window             │
+│  3. N-gram operation patterns (n=2-7)                      │
+│  4. JSON snapshots (temp_data.json)                        │
+└────────────────────────┬───────────────────────────────────┘
+│
+┌────────────────────────┴───────────────────────────────────┐
+│                  LLM + RAG Layer                             │
+│  - BERT embeddings (all-MiniLM-L6-v2)                    │
+│  - Cosine-sim retrieval (top-k=5)                          │
+│  - Prompt templates (prompts/*.txt)                      │
+│  - OpenAI-compatible endpoints (SiliconFlow, local GGML)   │
+└────────────────────────┬───────────────────────────────────┘
+│
+┌────────────────────────┴───────────────────────────────────┐
+│                    Report Renderer                           │
+│  - Sectioned or full markdown/HTML                         │
+│  - Auto-TOC, syntax-highlighted code blocks, emoji icons   │
+└──────────────────────────────────────────────────────────────┘
