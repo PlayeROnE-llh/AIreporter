@@ -51,13 +51,3 @@ python AIReporter.py
 
 
 ---
-sc2-ai-reporter/
-├── AIReporter.py           # Main GUI
-├── prompts/                # Prompt templates per audience & section
-├── knowledge/              # JSON knowledge files
-├── models/                 # Cached BERT models
-├── utils/
-│   ├── replay_parser.py    # sc2reader → json
-│   └── rag.py              # vector search & injection
-└── tests/
-    └── sample_replays/
