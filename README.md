@@ -1,5 +1,5 @@
 # AIreporter
-# StarCraft II AI Battle Report Generator
+# StarCraft II AI Report Generator
 
 Generate professional-grade, audience-specific battle reports from StarCraft II replays in seconds.  
 Simply drag-and-drop a `.SC2Replay`, pick a large language model and a knowledge base, and receive an in-depth analysis tailored for pro players, coaches, casters, casual gamers, or spectators.
