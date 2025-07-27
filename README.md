@@ -6,7 +6,7 @@ Simply drag-and-drop a `.SC2Replay`, pick a large language model and a knowledge
 
 ---
 
-## 🎯 What It Does
+## What It Does
 
 | Stakeholder | Example Output |
 |-------------|----------------|
@@ -18,4 +18,44 @@ Simply drag-and-drop a `.SC2Replay`, pick a large language model and a knowledge
 
 ---
 
-## 🏗️ Architecture
+---
+
+## Key Features
+
+- **Multi-Role Reports** – Same replay, five different voices.  
+- **RAG-Enhanced LLM** – 5 000+ SC2 entities, builds, and tactics injected at inference time via `all-MiniLM-L6-v2` embeddings.  
+- **Millisecond-Level Parsing** – Uses `sc2reader` to extract 100 % of events; converts to cleaned JSON in <2 s.  
+- **One-Click GUI** – Drag-and-drop, model & knowledge-base selectors, live progress bar.  
+- **Rich Export** – Sectioned or full reports in Markdown or HTML, ready for copy-paste.
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone
+git clone https://github.com/your-org/sc2-ai-reporter.git
+cd sc2-ai-reporter
+
+# 2. Install
+pip install -r requirements.txt
+
+# 3. (Optional) Cache BERT model locally
+python - <<'PY'
+from sentence_transformers import SentenceTransformer
+SentenceTransformer('all-MiniLM-L6-v2').save('models/all-MiniLM-L6-v2')
+PY
+
+# 4. Run
+python AIReporter.py
+
+sc2-ai-reporter/
+├── AIReporter.py           # Main GUI
+├── prompts/                # Prompt templates per audience & section
+├── knowledge/              # JSON knowledge files
+├── models/                 # Cached BERT models
+├── utils/
+│   ├── replay_parser.py    # sc2reader → json
+│   └── rag.py              # vector search & injection
+└── tests/
+    └── sample_replays/
