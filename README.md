@@ -103,7 +103,7 @@ You are an elite SC2 coach. Use only Battle.net terminology.
 
 ---
 ## 4.Quick Start
-
+![image](https://github.com/PlayeROnE-llh/AIreporter/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-11-05%20094719.png)
 ```bash
 # 1. Clone
 git clone https://github.com/your-org/sc2-ai-reporter.git
